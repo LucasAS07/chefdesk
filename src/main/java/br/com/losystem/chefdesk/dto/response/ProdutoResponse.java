@@ -1,4 +1,4 @@
-package br.com.losystem.chefdesk.dto;
+package br.com.losystem.chefdesk.dto.response;
 
 import br.com.losystem.chefdesk.domain.entity.Produto;
 

@@ -1,7 +1,7 @@
 package br.com.losystem.chefdesk.controller;
 
-import br.com.losystem.chefdesk.dto.ProdutoRequest;
-import br.com.losystem.chefdesk.dto.ProdutoResponse;
+import br.com.losystem.chefdesk.dto.request.ProdutoRequest;
+import br.com.losystem.chefdesk.dto.response.ProdutoResponse;
 import br.com.losystem.chefdesk.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

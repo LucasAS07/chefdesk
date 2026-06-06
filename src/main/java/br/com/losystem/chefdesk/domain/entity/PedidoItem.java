@@ -21,7 +21,7 @@ public class PedidoItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer quantidae;
+    private Integer quantidade;
 
     @Column(name = "preco_unitario")
     private BigDecimal precoUnitario;

@@ -24,5 +24,5 @@ public class Mesa {
     private Integer capacidade;
 
     @Enumerated(EnumType.STRING)
-    private StatusMesa statusMesa = StatusMesa.LIVRE;
+    private StatusMesa status = StatusMesa.LIVRE;
 }

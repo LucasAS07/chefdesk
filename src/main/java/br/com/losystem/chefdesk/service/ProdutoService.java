@@ -2,8 +2,8 @@ package br.com.losystem.chefdesk.service;
 
 import br.com.losystem.chefdesk.domain.entity.CategoriaProduto;
 import br.com.losystem.chefdesk.domain.entity.Produto;
-import br.com.losystem.chefdesk.dto.ProdutoRequest;
-import br.com.losystem.chefdesk.dto.ProdutoResponse;
+import br.com.losystem.chefdesk.dto.request.ProdutoRequest;
+import br.com.losystem.chefdesk.dto.response.ProdutoResponse;
 import br.com.losystem.chefdesk.repository.CategoriaProdutoRepository;
 import br.com.losystem.chefdesk.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
