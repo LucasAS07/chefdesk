@@ -7,6 +7,7 @@ import br.com.losystem.chefdesk.exception.RegraNegocioException;
 import br.com.losystem.chefdesk.repository.PedidoItemRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -34,6 +35,7 @@ public class CozinhaService {
             throw new RegraNegocioException("Somente itens pendentes podem iniciar preparo");
         }
         pedidoItem.setStatus(StatusItemPedido.EM_PREPARO);
+        pedidoItem.setDataInicioPreparo(LocalDateTime.now());
 
         return CozinhaItemResponse.fromEntity(itemRepository.save(pedidoItem));
     }
@@ -45,6 +47,7 @@ public class CozinhaService {
             throw new RegraNegocioException("Somente itens em preparo podem ser marcados como pronto");
         }
         pedidoItem.setStatus(StatusItemPedido.PRONTO);
+        pedidoItem.setDataPronto(LocalDateTime.now());
 
         return CozinhaItemResponse.fromEntity(itemRepository.save(pedidoItem));
     }
@@ -56,6 +59,7 @@ public class CozinhaService {
             throw new RegraNegocioException("Somente itens prontos  podem ser entregues");
         }
         pedidoItem.setStatus(StatusItemPedido.ENTREGUE);
+        pedidoItem.setDataEntrega(LocalDateTime.now());
 
         return CozinhaItemResponse.fromEntity(itemRepository.save(pedidoItem));
     }
