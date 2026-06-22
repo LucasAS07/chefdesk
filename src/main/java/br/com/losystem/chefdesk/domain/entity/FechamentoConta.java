@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -30,7 +31,7 @@ public class FechamentoConta {
     private BigDecimal total;
 
     @Column(name = "data_fechamento")
-    private LocalDate dataFechamento;
+    private LocalDateTime dataFechamento;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pedido_id")
@@ -38,6 +39,6 @@ public class FechamentoConta {
 
     @PrePersist
     public void prePersist() {
-        dataFechamento = LocalDate.now();
+        dataFechamento = LocalDateTime.now();
     }
 }

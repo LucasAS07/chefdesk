@@ -4,6 +4,7 @@ import br.com.losystem.chefdesk.dto.request.PedidoItemRequest;
 import br.com.losystem.chefdesk.dto.request.PedidoRequest;
 import br.com.losystem.chefdesk.dto.response.PedidoItemResponse;
 import br.com.losystem.chefdesk.dto.response.PedidoResponse;
+import br.com.losystem.chefdesk.service.PagamentoService;
 import br.com.losystem.chefdesk.service.PedidoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,9 +18,11 @@ import java.util.List;
 public class PedidoController {
 
     private final PedidoService pedidoService;
+    private final PagamentoService pagamentoService;
 
-    public PedidoController(PedidoService pedidoService) {
+    public PedidoController(PedidoService pedidoService, PagamentoService pagamentoService) {
         this.pedidoService = pedidoService;
+        this.pagamentoService = pagamentoService;
     }
 
     @PostMapping
@@ -50,5 +53,10 @@ public class PedidoController {
     @ResponseStatus(HttpStatus.OK)
     public List<PedidoItemResponse> listarItensDoPedido(@PathVariable Long pedidoId) {
         return pedidoService.listarItens(pedidoId);
+    }
+
+    @PostMapping("/{pedidoId}/pagar")
+    public void pagar(@PathVariable Long pedidoId, @RequestParam String formaPagamento) {
+        pagamentoService.pagar(pedidoId,formaPagamento);
     }
 }

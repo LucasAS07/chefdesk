@@ -3,7 +3,7 @@ package br.com.losystem.chefdesk.dto.response;
 import br.com.losystem.chefdesk.domain.entity.FechamentoConta;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record FechamentoContaResponse(
         Long id,
@@ -13,7 +13,7 @@ public record FechamentoContaResponse(
         BigDecimal taxaServico,
         BigDecimal desconto,
         BigDecimal total,
-        LocalDate dataFechamento
+        LocalDateTime dataFechamento
 ) {
     public static FechamentoContaResponse fromEntiy(FechamentoConta fechamento) {
         return new FechamentoContaResponse(
